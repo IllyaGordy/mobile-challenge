@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		49946F2B209909C3006F8738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946F2A209909C3006F8738 /* AppDelegate.swift */; };
-		49946F30209909C3006F8738 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49946F2E209909C3006F8738 /* Main.storyboard */; };
 		49946F32209909C3006F8738 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49946F31209909C3006F8738 /* Assets.xcassets */; };
 		49946F35209909C3006F8738 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49946F33209909C3006F8738 /* LaunchScreen.storyboard */; };
 		49946F40209909C3006F8738 /* PhotosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946F3F209909C3006F8738 /* PhotosTests.swift */; };
 		49946F4C20991E35006F8738 /* HelperUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946F4B20991E35006F8738 /* HelperUtils.swift */; };
+		49946F8F20995349006F8738 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946F8E20995349006F8738 /* Photo.swift */; };
+		49946F932099FE5B006F8738 /* PhotosListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946F922099FE5B006F8738 /* PhotosListViewModel.swift */; };
+		49946F99209A0A8B006F8738 /* PhotosListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946F97209A0A8B006F8738 /* PhotosListViewController.swift */; };
+		49946F9A209A0A8B006F8738 /* PhotosListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49946F98209A0A8B006F8738 /* PhotosListViewController.xib */; };
+		49946F9D209A10A5006F8738 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946F9C209A10A4006F8738 /* BaseViewController.swift */; };
+		49946F9F209A11C0006F8738 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946F9E209A11C0006F8738 /* RootViewController.swift */; };
 		B30532AE491A5A83BFB8CE33 /* Pods_Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5AE2F04D540648B1662CFE /* Pods_Photos.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +35,6 @@
 		0A7D3627D85704B66EFCAC33 /* Pods-Photos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Photos/Pods-Photos.debug.xcconfig"; sourceTree = "<group>"; };
 		49946F27209909C3006F8738 /* Photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49946F2A209909C3006F8738 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		49946F2F209909C3006F8738 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49946F31209909C3006F8738 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49946F34209909C3006F8738 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49946F36209909C3006F8738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,6 +42,12 @@
 		49946F3F209909C3006F8738 /* PhotosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTests.swift; sourceTree = "<group>"; };
 		49946F41209909C3006F8738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49946F4B20991E35006F8738 /* HelperUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperUtils.swift; sourceTree = "<group>"; };
+		49946F8E20995349006F8738 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		49946F922099FE5B006F8738 /* PhotosListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewModel.swift; sourceTree = "<group>"; };
+		49946F97209A0A8B006F8738 /* PhotosListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewController.swift; sourceTree = "<group>"; };
+		49946F98209A0A8B006F8738 /* PhotosListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosListViewController.xib; sourceTree = "<group>"; };
+		49946F9C209A10A4006F8738 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		49946F9E209A11C0006F8738 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		897BB71A5983BE810975FCF3 /* Pods-Photos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photos/Pods-Photos.release.xcconfig"; sourceTree = "<group>"; };
 		CF5AE2F04D540648B1662CFE /* Pods_Photos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -85,8 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				49946F2A209909C3006F8738 /* AppDelegate.swift */,
+				49946F8D2099533B006F8738 /* Model */,
+				49946F8720995233006F8738 /* UI */,
 				49946F4A20991E17006F8738 /* Utilities */,
-				49946F4E20991E87006F8738 /* View */,
 				49946F4D20991E7B006F8738 /* Other */,
 				49946F36209909C3006F8738 /* Info.plist */,
 			);
@@ -119,12 +130,40 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
-		49946F4E20991E87006F8738 /* View */ = {
+		49946F8720995233006F8738 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				49946F2E209909C3006F8738 /* Main.storyboard */,
+				49946F9B209A1091006F8738 /* BaseViewControllers */,
+				49946F882099523B006F8738 /* PhotoCollection */,
 			);
-			path = View;
+			path = UI;
+			sourceTree = "<group>";
+		};
+		49946F882099523B006F8738 /* PhotoCollection */ = {
+			isa = PBXGroup;
+			children = (
+				49946F922099FE5B006F8738 /* PhotosListViewModel.swift */,
+				49946F97209A0A8B006F8738 /* PhotosListViewController.swift */,
+				49946F98209A0A8B006F8738 /* PhotosListViewController.xib */,
+			);
+			path = PhotoCollection;
+			sourceTree = "<group>";
+		};
+		49946F8D2099533B006F8738 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49946F8E20995349006F8738 /* Photo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49946F9B209A1091006F8738 /* BaseViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				49946F9C209A10A4006F8738 /* BaseViewController.swift */,
+				49946F9E209A11C0006F8738 /* RootViewController.swift */,
+			);
+			path = BaseViewControllers;
 			sourceTree = "<group>";
 		};
 		64EB9057FEBE5C3C143E3A8A /* Frameworks */ = {
@@ -230,8 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				49946F35209909C3006F8738 /* LaunchScreen.storyboard in Resources */,
+				49946F9A209A0A8B006F8738 /* PhotosListViewController.xib in Resources */,
 				49946F32209909C3006F8738 /* Assets.xcassets in Resources */,
-				49946F30209909C3006F8738 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +341,11 @@
 			files = (
 				49946F2B209909C3006F8738 /* AppDelegate.swift in Sources */,
 				49946F4C20991E35006F8738 /* HelperUtils.swift in Sources */,
+				49946F932099FE5B006F8738 /* PhotosListViewModel.swift in Sources */,
+				49946F9F209A11C0006F8738 /* RootViewController.swift in Sources */,
+				49946F8F20995349006F8738 /* Photo.swift in Sources */,
+				49946F99209A0A8B006F8738 /* PhotosListViewController.swift in Sources */,
+				49946F9D209A10A5006F8738 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,14 +368,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		49946F2E209909C3006F8738 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				49946F2F209909C3006F8738 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		49946F33209909C3006F8738 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

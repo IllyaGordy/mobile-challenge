@@ -15,7 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Base Setup Navigation
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let photoListVM = PhotosListViewModel()
+        let homeVC = PhotosListViewController(with: photoListVM)
+        
+        let rootNavigationVC = RootViewController()
+        rootNavigationVC.pushViewController(homeVC, animated: false)
+        window?.rootViewController = rootNavigationVC
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
