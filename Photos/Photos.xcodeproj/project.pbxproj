@@ -18,6 +18,8 @@
 		49946F9A209A0A8B006F8738 /* PhotosListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49946F98209A0A8B006F8738 /* PhotosListViewController.xib */; };
 		49946F9D209A10A5006F8738 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946F9C209A10A4006F8738 /* BaseViewController.swift */; };
 		49946F9F209A11C0006F8738 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946F9E209A11C0006F8738 /* RootViewController.swift */; };
+		49946FA3209A1576006F8738 /* GridPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946FA1209A1576006F8738 /* GridPhotoCollectionViewCell.swift */; };
+		49946FA4209A1576006F8738 /* GridPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49946FA2209A1576006F8738 /* GridPhotoCollectionViewCell.xib */; };
 		B30532AE491A5A83BFB8CE33 /* Pods_Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5AE2F04D540648B1662CFE /* Pods_Photos.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +50,8 @@
 		49946F98209A0A8B006F8738 /* PhotosListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosListViewController.xib; sourceTree = "<group>"; };
 		49946F9C209A10A4006F8738 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		49946F9E209A11C0006F8738 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		49946FA1209A1576006F8738 /* GridPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		49946FA2209A1576006F8738 /* GridPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GridPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		897BB71A5983BE810975FCF3 /* Pods-Photos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photos/Pods-Photos.release.xcconfig"; sourceTree = "<group>"; };
 		CF5AE2F04D540648B1662CFE /* Pods_Photos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -142,6 +146,7 @@
 		49946F882099523B006F8738 /* PhotoCollection */ = {
 			isa = PBXGroup;
 			children = (
+				49946FA0209A1538006F8738 /* GridPhotoCollectionViewCell */,
 				49946F922099FE5B006F8738 /* PhotosListViewModel.swift */,
 				49946F97209A0A8B006F8738 /* PhotosListViewController.swift */,
 				49946F98209A0A8B006F8738 /* PhotosListViewController.xib */,
@@ -164,6 +169,15 @@
 				49946F9E209A11C0006F8738 /* RootViewController.swift */,
 			);
 			path = BaseViewControllers;
+			sourceTree = "<group>";
+		};
+		49946FA0209A1538006F8738 /* GridPhotoCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				49946FA1209A1576006F8738 /* GridPhotoCollectionViewCell.swift */,
+				49946FA2209A1576006F8738 /* GridPhotoCollectionViewCell.xib */,
+			);
+			path = GridPhotoCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		64EB9057FEBE5C3C143E3A8A /* Frameworks */ = {
@@ -271,6 +285,7 @@
 				49946F35209909C3006F8738 /* LaunchScreen.storyboard in Resources */,
 				49946F9A209A0A8B006F8738 /* PhotosListViewController.xib in Resources */,
 				49946F32209909C3006F8738 /* Assets.xcassets in Resources */,
+				49946FA4209A1576006F8738 /* GridPhotoCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49946F2B209909C3006F8738 /* AppDelegate.swift in Sources */,
+				49946FA3209A1576006F8738 /* GridPhotoCollectionViewCell.swift in Sources */,
 				49946F4C20991E35006F8738 /* HelperUtils.swift in Sources */,
 				49946F932099FE5B006F8738 /* PhotosListViewModel.swift in Sources */,
 				49946F9F209A11C0006F8738 /* RootViewController.swift in Sources */,

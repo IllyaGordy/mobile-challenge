@@ -8,9 +8,13 @@
 
 import UIKit
 
+private let gridPhotoCellIdentified = "GridPhotoCellIdentified"
+
 class PhotosListViewController: BaseViewController {
 
     private let viewModel: PhotosListViewModel
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     required init(with model: PhotosListViewModel) {
         viewModel = model
@@ -23,14 +27,62 @@ class PhotosListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(UINib(nibName: "GridPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: gridPhotoCellIdentified)
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension PhotosListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return viewModel.numberOfSections
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.dummyPhotos().count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gridPhotoCellIdentified, for: indexPath) as! GridPhotoCollectionViewCell
+        
+        cell.titleLabel.text = viewModel.dummyPhotos()[indexPath.row].name
+        
+        return cell
+        
+    }
+}
 
-
+fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+fileprivate let itemsPerRow: CGFloat = 3
+extension PhotosListViewController: UICollectionViewDelegateFlowLayout {
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
+    }
 }
