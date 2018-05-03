@@ -15,7 +15,7 @@ class Photo: NSObject, Mappable {
     var img_description: String?
     var width: Int?
     var height: Int?
-    var img_url: String?
+    var img_url: [String]?
     var username: String?
     
     // Local Variables
@@ -31,7 +31,7 @@ class Photo: NSObject, Mappable {
         img_description <- map["description"]
         width <- map["width"]
         height <- map["height"]
-        img_url <- map["urls.regular"]
+        img_url <- map["image_url"]
         username <- map["user.username"]
     }
     

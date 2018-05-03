@@ -43,6 +43,10 @@ extension PhotosListViewController: PhotosListViewModelDelegate {
     func reloadPhotos() {
         self.collectionView.reloadData()
     }
+    
+    func updateRowWithPulledImage(indexPath: IndexPath) {
+        self.collectionView.reloadItems(at: [indexPath])
+    }
 }
 
 extension PhotosListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -59,7 +63,22 @@ extension PhotosListViewController: UICollectionViewDataSource, UICollectionView
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gridPhotoCellIdentified, for: indexPath) as! GridPhotoCollectionViewCell
         
+        cell.titleLabel.textColor = UIColor.white
         cell.titleLabel.text = viewModel.photos[indexPath.row].img_description
+        
+        if viewModel.photos[indexPath.row].mainImage != nil {
+            
+            cell.photoView.image = viewModel.photos[indexPath.row].mainImage
+            
+        }else if viewModel.photos[indexPath.row].img_url != nil {
+            
+            cell.photoView.image = UIImage.init(named: "emptyState")
+            viewModel.setImage(indexPath: indexPath)
+            
+        }else {
+            print("Image URL is empty -> do nothing")
+            cell.photoView.image = UIImage.init(named: "emptyState")
+        }
         
         return cell
         

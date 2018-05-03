@@ -26,6 +26,7 @@
 		49946FB0209A91C0006F8738 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946FAF209A91C0006F8738 /* Constants.swift */; };
 		49946FB1209A95C6006F8738 /* PhotosListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946F97209A0A8B006F8738 /* PhotosListViewController.swift */; };
 		49946FB3209A9719006F8738 /* PhotosListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946FB2209A9719006F8738 /* PhotosListTests.swift */; };
+		49946FB5209BBB1C006F8738 /* CallHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49946FB4209BBB1C006F8738 /* CallHelper.swift */; };
 		B30532AE491A5A83BFB8CE33 /* Pods_Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5AE2F04D540648B1662CFE /* Pods_Photos.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		49946FAD209A9185006F8738 /* PhotosModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModelController.swift; sourceTree = "<group>"; };
 		49946FAF209A91C0006F8738 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		49946FB2209A9719006F8738 /* PhotosListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListTests.swift; sourceTree = "<group>"; };
+		49946FB4209BBB1C006F8738 /* CallHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallHelper.swift; sourceTree = "<group>"; };
 		897BB71A5983BE810975FCF3 /* Pods-Photos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Photos/Pods-Photos.release.xcconfig"; sourceTree = "<group>"; };
 		CF5AE2F04D540648B1662CFE /* Pods_Photos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Photos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -173,6 +175,7 @@
 		49946F8D2099533B006F8738 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				49946FB4209BBB1C006F8738 /* CallHelper.swift */,
 				49946F8E20995349006F8738 /* Photo.swift */,
 				49946FAD209A9185006F8738 /* PhotosModelController.swift */,
 			);
@@ -399,6 +402,7 @@
 				49946FAE209A9185006F8738 /* PhotosModelController.swift in Sources */,
 				49946F8F20995349006F8738 /* Photo.swift in Sources */,
 				49946FA9209A4309006F8738 /* PhotoDetailViewController.swift in Sources */,
+				49946FB5209BBB1C006F8738 /* CallHelper.swift in Sources */,
 				49946F9D209A10A5006F8738 /* BaseViewController.swift in Sources */,
 				49946FB0209A91C0006F8738 /* Constants.swift in Sources */,
 			);

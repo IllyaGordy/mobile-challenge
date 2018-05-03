@@ -19,29 +19,29 @@
                 <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="APR-ye-Q0W">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKq-fG-HhI">
                         <rect key="frame" x="79" y="90" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKU-9k-1As">
-                        <rect key="frame" x="79" y="119" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </view>
+            <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
             <constraints>
-                <constraint firstItem="qKU-9k-1As" firstAttribute="top" secondItem="cKq-fG-HhI" secondAttribute="bottom" constant="8" id="Gxv-1i-UZc"/>
+                <constraint firstItem="APR-ye-Q0W" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="BhA-a4-HSz"/>
                 <constraint firstItem="cKq-fG-HhI" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="QVf-QX-6lE"/>
-                <constraint firstItem="qKU-9k-1As" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="aMs-T5-ecp"/>
+                <constraint firstAttribute="bottom" secondItem="APR-ye-Q0W" secondAttribute="bottom" id="SjA-1T-gL8"/>
+                <constraint firstItem="APR-ye-Q0W" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TUG-zd-1ko"/>
+                <constraint firstAttribute="trailing" secondItem="APR-ye-Q0W" secondAttribute="trailing" id="cue-XU-rfc"/>
                 <constraint firstItem="cKq-fG-HhI" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="kMM-Tf-ES4"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
-                <outlet property="descriptionLabel" destination="qKU-9k-1As" id="gie-FD-HZw"/>
+                <outlet property="photoView" destination="APR-ye-Q0W" id="J82-dm-tN7"/>
                 <outlet property="titleLabel" destination="cKq-fG-HhI" id="B3N-Ai-VPr"/>
             </connections>
         </collectionViewCell>

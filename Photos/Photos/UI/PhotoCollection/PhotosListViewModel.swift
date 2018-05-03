@@ -11,6 +11,7 @@ import Foundation
 protocol PhotosListViewModelDelegate: class {
     
     func reloadPhotos()
+    func updateRowWithPulledImage(indexPath: IndexPath)
 }
 
 class PhotosListViewModel {
@@ -42,5 +43,24 @@ class PhotosListViewModel {
         }
         
     }
+    
+    func setImage(indexPath: IndexPath) {
+        
+        guard let image_url = photos[indexPath.row].img_url else {
+            print("No image URL set")
+            return
+        }
+        
+        PhotosModelController.pullImage(with: image_url[0], success: { (returnedImage) in
+            
+            self.photos[indexPath.row].mainImage = returnedImage
+            self.delegate?.updateRowWithPulledImage(indexPath: indexPath)
+            
+        }) { (errorPullingImage) in
+            print("errorPullingImage: \(errorPullingImage)")
+        }
+        
+    }
+    
     
 }

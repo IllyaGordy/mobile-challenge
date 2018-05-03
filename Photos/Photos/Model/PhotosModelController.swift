@@ -22,46 +22,48 @@ class PhotosModelController: NSObject {
     
     class func pullFeed(success:@escaping ((Bool) -> Void), failed:@escaping ((NSError) -> Void)) {
         
-        let sendUrl = host + "/photos"
+        let sendUrl = host + api_version + "/photos"
         
-        let params = ["client_id": upsplashKey,
+        let params = ["consumer_key": consumer_key,
+                      "feature": "popular",
                       "page": lastPulledPage + 1,
-                      "per_page": numberOfPhotosPerPage] as [String : Any]
+                      "rpp": numberOfPhotosPerPage] as [String : Any]
         
         if !pulledPages.contains(lastPulledPage + 1) {
-            Alamofire.request(sendUrl, method: .get, parameters: params).responseJSON { response in
+            
+            Alamofire.request(sendUrl, method: .get, parameters: params).responseObject { (response: DataResponse<CallHelper>) in
                 
                 if let error = response.result.error {
                     let errorToPass = NSError.init(domain: error.localizedDescription, code: 0, userInfo: nil)
                     failed(errorToPass)
                 }else {
+                    
                     if response.response?.statusCode == 200 {
                         
-                        
-                        //to get JSON return value
-                        guard let responseJSON = response.result.value as? Array<[String: AnyObject]> else {
+                        if let returnValue = response.result.value {
                             
-                            let errorMessage = "Wrong Data Error"
-                            let errorToPass: NSError = NSError.init(domain: errorMessage, code: 0, userInfo: nil)
-                            failed(errorToPass)
-                            return
+                            guard let photos = returnValue.photos else { return }
+                            
+                            self.currentPhotos.append(contentsOf: photos)
+                            self.lastPulledPage += 1
+                            self.pulledPages.append(self.lastPulledPage)
+                            
+                            success(true)
+                            
                         }
-                        let photos:[Photo] = Mapper<Photo>().mapArray(JSONArray: responseJSON)
-                        
-                        self.currentPhotos.append(contentsOf: photos)
-                        self.lastPulledPage += 1
-                        self.pulledPages.append(self.lastPulledPage)
-                        
-                        success(true)
-                        
                     }else {
                         
-                        let errorMessage = "HTTP Error"
+                        let errorMessage = "Wrong Login Information"
                         let errorToPass: NSError = NSError.init(domain: errorMessage, code: 0, userInfo: nil)
                         failed(errorToPass)
+                        
                     }
+                    
                 }
+                
             }
+            
+            
         }
         
         
