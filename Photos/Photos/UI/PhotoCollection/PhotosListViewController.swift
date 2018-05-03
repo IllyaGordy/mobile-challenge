@@ -29,7 +29,9 @@ class PhotosListViewController: BaseViewController {
         super.viewDidLoad()
         
         viewModel.delegate = self
-        viewModel.loadView()
+        viewModel.loadView {
+            self.reloadPhotos()
+        }
         
         collectionView.dataSource = self
         collectionView.delegate = self

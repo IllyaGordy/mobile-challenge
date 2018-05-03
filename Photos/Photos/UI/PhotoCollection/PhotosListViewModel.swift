@@ -23,12 +23,16 @@ class PhotosListViewModel {
         
     }
     
-    func loadView() {
+    func loadView(completion: (() -> ())?) {
         
         if HelperUtils.isInternetAvailable() == true {
             PhotosModelController.pullFeed(success: { (success) in
                 self.photos = PhotosModelController.currentPhotos
                 self.delegate?.reloadPhotos()
+                
+                if let completion = completion {
+                    completion()
+                }
                 
             }) { (failedToPullFeed) in
                 print("FailedToPullFeed: \(failedToPullFeed)")
