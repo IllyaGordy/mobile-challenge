@@ -28,10 +28,18 @@ class PhotosListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.delegate = self
+        viewModel.loadView()
         
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "GridPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: gridPhotoCellIdentified)
+    }
+}
+
+extension PhotosListViewController: PhotosListViewModelDelegate {
+    func reloadPhotos() {
+        self.collectionView.reloadData()
     }
 }
 
@@ -42,25 +50,31 @@ extension PhotosListViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.dummyPhotos().count
+        return viewModel.photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gridPhotoCellIdentified, for: indexPath) as! GridPhotoCollectionViewCell
         
-        cell.titleLabel.text = viewModel.dummyPhotos()[indexPath.row].name
+        cell.titleLabel.text = viewModel.photos[indexPath.row].img_description
         
         return cell
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        let photoDetailVM = PhotoDetailViewModel()
+        let photoDetailVC = PhotoDetailViewController(with: photoDetailVM)
+        self.navigationController?.pushViewController(photoDetailVC, animated: true)
     }
 }
 
 fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
 fileprivate let itemsPerRow: CGFloat = 3
 extension PhotosListViewController: UICollectionViewDelegateFlowLayout {
-    
-    
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

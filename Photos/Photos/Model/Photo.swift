@@ -7,17 +7,39 @@
 //
 
 import Foundation
+import ObjectMapper
 
-struct Photos: Codable {
-    let photos: [Photo]
-}
-
-struct Photo: Codable {
-    let id: Int
-    let name: String
-    let description: String?
-    let created_at: Date?
-    let image_url: String
-    let for_sale: Bool
-    let camera: String?
+class Photo: NSObject, Mappable {
+    
+    var id: String?
+    var img_description: String?
+    var width: Int?
+    var height: Int?
+    var img_url: String?
+    var username: String?
+    
+    // Local Variables
+    var mainImage: UIImage?
+    
+    required init?(map: Map){
+        
+    }
+    
+    func mapping(map: Map) {
+        
+        id <- map["id"]
+        img_description <- map["description"]
+        width <- map["width"]
+        height <- map["height"]
+        img_url <- map["urls.regular"]
+        username <- map["user.username"]
+    }
+    
+    init(id: String, img_description: String, width: Int, height: Int) {
+        self.id   = id
+        self.img_description = img_description
+        self.width  = width
+        self.height  = height
+    }
+    
 }

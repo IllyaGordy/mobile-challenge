@@ -10,35 +10,32 @@ import Foundation
 
 protocol PhotosListViewModelDelegate: class {
     
-    func setPhotos(photos: [Photo])
+    func reloadPhotos()
 }
 
 class PhotosListViewModel {
     
     weak var delegate: PhotosListViewModelDelegate?
     let numberOfSections = 1
+    var photos:[Photo] = []
     
     required init() {
         
     }
     
     func loadView() {
-        delegate?.setPhotos(photos: dummyPhotos())
-    }
-    
-    
-    func dummyPhotos() -> [Photo] {
         
-        var tempPhotos:[Photo] = []
-        let count = 5
-        
-        for index in 0...count {
-            
-            let photo = Photo(id: index, name: "Photo \(index)", description: "Description", created_at: nil, image_url: "stuff", for_sale: true, camera: "some camera")
-            tempPhotos.append(photo)
+        if HelperUtils.isInternetAvailable() == true {
+            PhotosModelController.pullFeed(success: { (success) in
+                self.photos = PhotosModelController.currentPhotos
+                self.delegate?.reloadPhotos()
+                
+            }) { (failedToPullFeed) in
+                print("FailedToPullFeed: \(failedToPullFeed)")
+            }
+        }else {
+            // TODO: Print error
         }
-        
-        return tempPhotos
         
     }
     
