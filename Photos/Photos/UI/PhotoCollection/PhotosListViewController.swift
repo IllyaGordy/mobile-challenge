@@ -67,7 +67,7 @@ extension PhotosListViewController: UICollectionViewDataSource, UICollectionView
         cell.titleLabel.text = viewModel.photos[indexPath.row].img_description
         
         if viewModel.photos[indexPath.row].mainImage != nil {
-            
+        
             cell.photoView.image = viewModel.photos[indexPath.row].mainImage
             
         }else if viewModel.photos[indexPath.row].img_url != nil {
@@ -84,8 +84,14 @@ extension PhotosListViewController: UICollectionViewDataSource, UICollectionView
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
+        if indexPath.row == viewModel.photos.count - 1 {
+            viewModel.pullMoreImages()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let photoDetailVM = PhotoDetailViewModel()
         let photoDetailVC = PhotoDetailViewController(with: photoDetailVM)

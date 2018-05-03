@@ -62,5 +62,21 @@ class PhotosListViewModel {
         
     }
     
+    func pullMoreImages() {
+        
+        if HelperUtils.isInternetAvailable() == true {
+            PhotosModelController.pullFeed(success: { (success) in
+                self.photos = PhotosModelController.currentPhotos
+                self.delegate?.reloadPhotos()
+                
+            }) { (failedToPullFeed) in
+                print("FailedToPullFeed: \(failedToPullFeed)")
+            }
+        }else {
+            // TODO: Print error
+        }
+        
+    }
+    
     
 }
