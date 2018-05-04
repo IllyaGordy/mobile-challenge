@@ -12,7 +12,8 @@ class PhotoDetailViewController: BaseViewController {
     
     private let viewModel: PhotoDetailViewModel
 
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
     
     required init(with model: PhotoDetailViewModel) {
         viewModel = model
@@ -26,7 +27,51 @@ class PhotoDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.titleLabel.text = viewModel.mainPhoto.img_description
+        viewModel.delegate = self
+        setupPhoto()
+        
+        // Swipe Gestures
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture(gesture:)))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture(gesture:)))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+    }
+    
+    func setupPhoto() {
+        self.usernameLabel.text = viewModel.mainPhoto.username
+        
+        if viewModel.mainPhoto.mainImage != nil {
+            
+            photoView.image = viewModel.mainPhoto.mainImage
+            
+        }else if viewModel.mainPhoto.img_url != nil {
+            
+            photoView.image = UIImage.init(named: "emptyState")
+            
+            viewModel.setImage(indexPath: viewModel.currentPhotoIndex)
+            
+        }else {
+            print("Image URL is empty -> do nothing")
+            photoView.image = UIImage.init(named: "emptyState")
+        }
+    }
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == UISwipeGestureRecognizerDirection.right {
+            viewModel.swipeRight()
+        }
+        else if gesture.direction == UISwipeGestureRecognizerDirection.left {
+            viewModel.swipeLeft()
+        }
     }
 
+}
+
+extension PhotoDetailViewController: PhotoDetailViewModelDelegate {
+    func resetImage(with photo: Photo) {
+        setupPhoto()
+    }
 }

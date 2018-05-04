@@ -26,6 +26,7 @@ class PhotosModelController: NSObject {
         
         let params = ["consumer_key": consumer_key,
                       "feature": "popular",
+                      "image_size": 4,
                       "page": lastPulledPage + 1,
                       "rpp": numberOfPhotosPerPage] as [String : Any]
         

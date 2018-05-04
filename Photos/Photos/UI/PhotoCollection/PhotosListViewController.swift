@@ -63,9 +63,6 @@ extension PhotosListViewController: UICollectionViewDataSource, UICollectionView
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gridPhotoCellIdentified, for: indexPath) as! GridPhotoCollectionViewCell
         
-        cell.titleLabel.textColor = UIColor.white
-        cell.titleLabel.text = viewModel.photos[indexPath.row].img_description
-        
         if viewModel.photos[indexPath.row].mainImage != nil {
         
             cell.photoView.image = viewModel.photos[indexPath.row].mainImage
@@ -93,7 +90,7 @@ extension PhotosListViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let photoDetailVM = PhotoDetailViewModel()
+        let photoDetailVM = PhotoDetailViewModel(with: indexPath, listOfOhotos: viewModel.photos)
         let photoDetailVC = PhotoDetailViewController(with: photoDetailVM)
         self.navigationController?.pushViewController(photoDetailVC, animated: true)
     }
