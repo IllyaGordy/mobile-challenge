@@ -1,9 +1,9 @@
 # Mobile Developer Coding Challenge
 
 ## Updates:
-500px - Mobile Challange
-By: Illya Gordiyenko
-Date: May 3rd, 2018
+- 500px - Mobile Challange
+- By: Illya Gordiyenko
+- Date: May 3rd, 2018
 
 #### General
 - Version: iOS 10.0 +
