@@ -36,6 +36,16 @@ class PhotosListViewController: BaseViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "GridPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: gridPhotoCellIdentified)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onPopBack(notification:)), name: popBackNotification, object: nil)
+
+    }
+    
+    @objc func onPopBack(notification:Notification) {
+        
+        if let userInfo = notification.userInfo, let indexPath = userInfo["indexPath"] as? IndexPath {
+            self.collectionView?.scrollToItem(at: indexPath, at: .centeredVertically, animated: false)
+        }
     }
 }
 
@@ -90,9 +100,36 @@ extension PhotosListViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        self.performPushAnimation(indexPath: indexPath)
+    }
+    
+    func performPushAnimation(indexPath: IndexPath) {
         let photoDetailVM = PhotoDetailViewModel(with: indexPath, listOfOhotos: viewModel.photos)
         let photoDetailVC = PhotoDetailViewController(with: photoDetailVM)
-        self.navigationController?.pushViewController(photoDetailVC, animated: true)
+        
+        let window = UIApplication.shared.delegate?.window!
+        // TODO: set the destination View center based on the cell
+        // destinationView?.center = CGPoint(x: (sourceView?.center.x)!, y: (sourceView?.center.y)! - (destinationView?.center.y)!)
+        
+        window?.insertSubview(photoDetailVC.view, aboveSubview: self.view)
+        
+        
+        photoDetailVC.view.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+        photoDetailVC.view.alpha = 0.0
+        
+        UIView.animate(withDuration: 0.3,
+                       animations: {
+
+                        photoDetailVC.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                        photoDetailVC.view.alpha = 1.0
+
+        }, completion: {
+            (value: Bool) in
+
+            self.navigationController?.pushViewController(photoDetailVC, animated: false)
+
+
+        })
     }
 }
 

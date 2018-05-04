@@ -8,6 +8,8 @@
 
 import UIKit
 
+let popBackNotification = Notification.Name("popBackNotification")
+
 class PhotoDetailViewController: BaseViewController {
     
     private let viewModel: PhotoDetailViewModel
@@ -24,9 +26,13 @@ class PhotoDetailViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         viewModel.delegate = self
         setupPhoto()
         
@@ -67,7 +73,29 @@ class PhotoDetailViewController: BaseViewController {
             viewModel.swipeLeft()
         }
     }
-
+    
+    @IBAction func backButton(_ sender: UIButton) {
+        
+        self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        self.view.alpha = 1.0
+        
+        UIView.animate(withDuration: 0.3,
+                       animations: {
+                        
+                        self.view.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+                        self.view.alpha = 0.0
+                        
+        }, completion: {
+            (value: Bool) in
+            
+            NotificationCenter.default.post(name: popBackNotification, object: nil, userInfo:["indexPath": self.viewModel.currentPhotoIndex])
+        
+            self.navigationController?.popViewController(animated: false)
+            
+            
+        })
+        
+    }
 }
 
 extension PhotoDetailViewController: PhotoDetailViewModelDelegate {
