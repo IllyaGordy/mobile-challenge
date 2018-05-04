@@ -1,5 +1,27 @@
 # Mobile Developer Coding Challenge
 
+## Updates:
+500px - Mobile Challange
+By: Illya Gordiyenko
+Date: May 3rd, 2018
+
+#### General
+- Version: iOS 10.0 +
+- Swift 4.0 (NOTE: This is one above the required Swift 3, but the doc seems a bit outdated)
+- Using Cocoapods - most are helper UI functions + Alamofire
+
+#### Dev Notes
+I've tried a slightly different approach on this coding challange compared to a few other ones I've done. Mainly I've been trying to focus on the project setup, so it follows a more detail MVVM design patern for the PhotoCollection and the PhotoDetail; which are easily scaled to include Unit Tests(only a basic one done). This approach worked well but I've seemingly ran out of time for final polish of the UI and the transitions. 
+
+#### Bugs and Future Improvements:
+There is a number of TODO for future improvements:
+- Animations:
+  - TBD: Pop back is done wrong, always goes through a black screen before poping. 
+  - TBD: Animations are lacking the precision, always spans from the middle of the screen rather than the the individual cell. Will have to be adjusted for this
+- UI: 
+  - PhotoCollection -> this should have a more detailed custom FlowLayout that would take in account the different photo sizes and position then accordingly; as to avoid the massive white space between each cell. 
+
+
 This is a coding challenge for prospective mobile developer applicants applying through https://about.500px.com/jobs/ 
 
 ## Goal:
